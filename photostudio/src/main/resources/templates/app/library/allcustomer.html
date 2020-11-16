@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All customers</h3>
+			</div>
+		</div>
+		<td><form class="form" th:object="${search}" th:method="post" th:attr="action=@{/app/customer/search/}">
+					<div class="form-group"><input type="text"
+					class="form-control" th:field="${search.str}" id="serach"
+					placeholder="Search" required=""/></div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+		</form></td>
+
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>FIRST NAME</th>
+				<th>LAST NAME</th>
+				<th>WARD</th>
+				<th>CITY</th>
+				<th>Contact</th>
+			</tr>
+			<tr th:each="cust : ${cust}">
+				<td th:text="${cust.customer_id}"></td>
+				<td th:text="${cust.fname}"></td>
+				<td th:text="${cust.lname}"></td>
+				<td th:text="${cust.wardname}"></td>
+				<td th:text="${cust.city}"></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/customer/contact/} + ${cust.customer_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Contact" />
+					</form></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/customer/order/} + ${cust.customer_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Orders" />
+					</form></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/customer/addorder/} + ${cust.customer_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add Order" />
+					</form></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/editcustomer/} + ${cust.customer_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Edit Customer" />
+					</form></td>	
+				
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Material</h3>
+			</div>
+		</div>
+		<td><form class="form" th:object="${search}" th:method="post" th:attr="action=@{/app/material/search/}">
+					<div class="form-group"><input type="text"
+					class="form-control" th:field="${search.str}" id="serach"
+					placeholder="Search" required=""/></div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+		</form></td>
+
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>Material Name</th>
+				<th>Description</th>
+				<th>Unit Price</th>
+				<th>Available Quantity</th>
+			</tr>
+			<tr th:each="material : ${material}">
+				<td th:text="${material.material_id}"></td>
+				<td th:text="${material.material_name}"></td>
+				<td th:text="${material.description}"></td>
+				<td th:text="${material.unitprice}"></td>
+				<td th:text="${material.available_quantity}"></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/material/supplier/} + ${material.material_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Order from Suppliers" />
+					</form></td>
+					
+				<td><form th:method="get"
+						th:attr="action=@{/app/material/addmaterialsupplier/} + ${material.material_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add Supplier" />
+					</form></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>

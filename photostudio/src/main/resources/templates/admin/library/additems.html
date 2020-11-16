@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>Add items</h3>
+			</div>
+		</div>
+
+		 <form class="form" th:method="post" th:attr="action=@{/admin/customer/addorder/}+${cust_id}">
+		 <div class="form-group">
+				<h3>Save Order</h3>
+				<button type="submit" class="btn btn-primary">click to Save Order</button>
+			</div>
+		</form>
+
+		<table class="table table-hover">
+			<h4>Studio Photograph</h4>
+			<tr>
+				<th>Photographer</th>
+				<th>Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="photo : ${photo}">
+				<td th:text="${photo.photographer}"></td>
+				<td th:text="${photo.size}"></td>
+				<td th:text="${photo.price}"></td>
+	
+			</tr>
+			
+		</table>
+		<form th:method="get"
+						th:attr="action=@{/admin/order/addphoto/}+${cust_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add photograph" />
+					</form>
+		<table class="table table-hover">
+			<h4>Prints</h4>
+			<tr>
+				<th>Print Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="print : ${print}">
+				<td th:text="${print.print_size}"></td>
+				<td th:text="${print.price}"></td>
+	
+			</tr>
+		</table>
+		<form th:method="get"
+						th:attr="action=@{/admin/order/addprint/}+${cust_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add Print" />
+					</form>
+		<table class="table table-hover">
+			<h4>Materials</h4>
+			<tr>
+				<th>Material ID</th>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="material : ${material}">
+				<td th:text="${material.material_id}"></td>
+				<td th:text="${material.name}"></td>
+				<td th:text="${material.price}"></td>
+	
+			</tr>
+		</table>
+		<form th:method="get"
+						th:attr="action=@{/admin/order/addmaterial/}+${cust_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add Material" />
+					</form>
+		<table class="table table-hover">
+			<h4>Outdoor order</h4>
+			<tr>
+				<th>Start Date</th>
+				<th>Start Time</th>
+				<th>End Date</th>
+				<th>End Time</th>
+				<th>Order Type</th>
+				<th>Service req</th>
+				<th>price</th>
+			</tr>
+			<tr th:each="outdoor : ${outdoor}">
+				<td th:text="${outdoor.sdate}"></td>
+				<td th:text="${outdoor.stime}"></td>
+				<td th:text="${outdoor.edate}"></td>
+				<td th:text="${outdoor.stime}"></td>
+				<td th:text="${outdoor.ordertype}"></td>
+				<td th:text="${outdoor.service_req}"></td>
+				<td th:text="${outdoor.price}"></td>
+	
+			</tr>
+		</table>
+		<form th:method="get"
+						th:attr="action=@{/admin/order/addoutdoor/}+${cust_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add OutdoorOrder" />
+					</form>
+		<table class="table table-hover">
+			<h4>services</h4>
+			<tr>
+				<th>Service Date</th>
+				<th>Service Time</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="service : ${service}">
+				<td th:text="${service.servicedate}"></td>
+				<td th:text="${service.servicetime}"></td>
+				<td th:text="${service.price}"></td>
+	
+			</tr>
+		</table>
+		<form th:method="get"
+						th:attr="action=@{/admin/order/addservice/}+${cust_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Add Service" />
+					</form>
+
+	</div>
+
+
+</body>
+<footer></footer>
+</html>

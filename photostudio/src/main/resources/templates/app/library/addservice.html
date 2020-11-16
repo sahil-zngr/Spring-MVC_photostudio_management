@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h3>Add service</h3>
+			</div>
+		</div>
+		
+		<form class="form" th:object="${print}" th:method="post">
+			
+			<div class="form-row">
+			
+				<div class="form-group">
+					<label for="publishDate">Service Date</label> <input type="date"
+						class="form-control" th:field="${service.servicedate}" id="sdate"
+						placeholder="SErvice Date" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="publishDate">Start Time</label> <input type="time"
+						class="form-control" th:field="${service.servicetime}" id="stime"
+						placeholder="Service Time" required=""/>
+				</div>
+			
+				
+				<div class="form-group">
+					<label for="authors">Price</label> <input type="number"
+						class="form-control" th:field="${service.price}" id="price"
+						placeholder="price" required=""/>
+				</div>
+
+	
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">click to Add Item</button>
+			</div>
+		</form>
+		</div>
+</body>

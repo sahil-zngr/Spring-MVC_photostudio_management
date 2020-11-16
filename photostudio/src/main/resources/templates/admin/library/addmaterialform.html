@@ -1,0 +1,30 @@
+
+<div class="form-row">
+
+	<div class="form-group">
+		<label for="bookTitle">Material Name</label> <input type="text"
+			class="form-control" th:field="${mat.material_name}" id="material_name"
+			placeholder="Name" required=""></input>
+	</div>
+
+	<div class="form-group">
+		<label for="isbin">Description</label> <input type="text"
+			class="form-control" th:field="${mat.description}" id="description"
+			placeholder="description" required=""/>
+	</div>
+	
+	<div class="form-group">
+		<label for="authors">UnitPrice</label> <input type="number"
+			class="form-control" th:field="${mat.unitprice}" id="unitprice"
+			placeholder="unitprice" required=""/>
+	</div>
+	
+	<div class="form-group">
+		<label for="publisher">Available Quantity</label> <input type="number"
+			class="form-control" th:field="${mat.available_quantity}" id="available_quantity"
+			placeholder="available_quantity" required=""/>
+	</div>
+
+	
+</div>
+<div class="form-row"></div>

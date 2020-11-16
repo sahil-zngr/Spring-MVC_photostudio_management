@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h1>shyam photo studio</h1>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<h4>Studio Photograph</h4>
+			<tr>
+				<th>Photo ID</th>
+				<th>Order ID</th>
+				<th>Photographer</th>
+				<th>Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="photo : ${photo}">
+				<td th:text="${photo.photo_id}"></td>
+				<td th:text="${photo.order_id}"></td>
+				<td th:text="${photo.photographer}"></td>
+				<td th:text="${photo.size}"></td>
+				<td th:text="${photo.price}"></td>
+	
+			</tr>
+		</table>
+		<table class="table table-hover">
+			<h4>Prints</h4>
+			<tr>
+				<th>Print ID</th>
+				<th>Order ID</th>
+				<th>Print Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="print : ${print}">
+				<td th:text="${print.print_id}"></td>
+				<td th:text="${print.order_id}"></td>
+				<td th:text="${print.print_size}"></td>
+				<td th:text="${print.price}"></td>
+	
+			</tr>
+		</table>
+		<table class="table table-hover">
+			<h4>Materials</h4>
+			<tr>
+				<th>Sold ID</th>
+				<th>Material ID</th>
+				<th>Order ID</th>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="material : ${material}">
+				<td th:text="${material.materialsold_id}"></td>
+				<td th:text="${material.material_id}"></td>
+				<td th:text="${material.order_id}"></td>
+				<td th:text="${material.name}"></td>
+				<td th:text="${material.price}"></td>
+	
+			</tr>
+		</table>
+		<table class="table table-hover">
+			<h4>Outdoor order</h4>
+			<tr>
+				<th>Outdoor ID</th>
+				<th>Order ID</th>
+				<th>Start Date</th>
+				<th>Start Time</th>
+				<th>End Date</th>
+				<th>End Time</th>
+				<th>Order Type</th>
+				<th>Service req</th>
+				<th>price</th>
+			</tr>
+			<tr th:each="outdoor : ${outdoor}">
+				<td th:text="${outdoor.outdoororder_id}"></td>
+				<td th:text="${outdoor.order_id}"></td>
+				<td th:text="${outdoor.sdate}"></td>
+				<td th:text="${outdoor.stime}"></td>
+				<td th:text="${outdoor.edate}"></td>
+				<td th:text="${outdoor.stime}"></td>
+				<td th:text="${outdoor.ordertype}"></td>
+				<td th:text="${outdoor.service_req}"></td>
+				<td th:text="${outdoor.price}"></td>
+	
+			</tr>
+		</table>
+		
+		<table class="table table-hover">
+			<h4>services</h4>
+			<tr>
+				<th>Service ID</th>
+				<th>Order ID</th>
+				<th>Service Date</th>
+				<th>Service Time</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="service : ${service}">
+				<td th:text="${service.service_id}"></td>
+				<td th:text="${service.order_id}"></td>
+				<td th:text="${service.servicedate}"></td>
+				<td th:text="${service.servicetime}"></td>
+				<td th:text="${service.price}"></td>
+	
+			</tr>
+		</table>
+		<form class="form" th:method="get" th:attr="action=@{/app/order/sendmail/}+${order_id}">
+		 <div class="form-group">
+		 <h3>Send Invoice</h3>
+				<button type="submit" class="btn btn-primary">save Invoice send Mail</button>
+			</div>
+		</form>
+
+	</div>
+
+
+</body>
+</html>

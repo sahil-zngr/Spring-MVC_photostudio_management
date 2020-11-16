@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Prints</h3>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<h4>Prints</h4>
+			<tr>
+				<th>Print ID</th>
+				<th>Order ID</th>
+				<th>Print Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="print : ${print}">
+				<td th:text="${print.print_id}"></td>
+				<td th:text="${print.order_id}"></td>
+				<td th:text="${print.print_size}"></td>
+				<td th:text="${print.price}"></td>
+	
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>

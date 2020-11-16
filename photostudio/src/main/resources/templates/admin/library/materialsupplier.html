@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Material Supplier</h3>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>Supplier Id</th>
+				<th>Unit Price</th>
+				<th>supplier info</th>
+				<th>Quantity</th>
+			</tr>
+			<tr th:each="matsupp : ${matsupp}">
+				<td th:text="${matsupp.material_id}"></td>
+				<td th:text="${matsupp.supplier_id}"></td>
+				<td th:text="${matsupp.price}"></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/supplier/} + ${matsupp.supplier_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Suppliers Info" />
+					</form></td>
+					
+				<td><form class="form" th:object="${qut}" th:method="post" th:attr="action=@{/admin/materialorder/}+${matsupp.material_id}+@{/}+${matsupp.supplier_id}+@{/}+${matsupp.price}">
+					<div class="form-group"><input type="number"
+					class="form-control" th:field="${qut.quantity}" id="quantity"
+					placeholder="quantity" required=""/></div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">click to add Order</button>
+					</div>
+		</form></td>
+				
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>

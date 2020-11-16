@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Add Users</h1>
+			</div>
+		</div>
+		<h3> <p th:utext=${message.msg}></p> </h3>
+		<form class="form" th:object="${user}" th:method="post">
+		
+			
+<div class="form-row">
+
+
+		<div class="form-group">
+			<label for="bookTitle">USER NAME</label> <input type="text"
+				class="form-control" th:field="${user.username}" id="username"
+				placeholder="username" required=""></input>
+		</div>
+	
+		<div class="form-group">
+			<label for="isbin">Password</label> <input type="password"
+				class="form-control" th:field="${user.password}" id="password"
+				placeholder="password" required=""/>
+		</div>
+		<div class="form-group">
+		<label for="isbin">Role</label>
+		<select th:field="${user.role}">
+    		<option th:value="ROLE_ADMIN" th:text="admin"></option>
+    		<option th:value="ROLE_EMPLOYEE" th:text="employee"></option>
+		</select></div>
+		<div class="form-group">
+			<label for="publisher">Employee Id</label> <input type="number"
+				class="form-control" th:field="${user.employee_id}" id="employee_id"
+				placeholder="employee_id" required=""/>
+		</div>
+	
+	
+		
+	</div>
+<div class="form-row"></div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Add New User</button>
+			</div>
+		</form>
+		</div>
+</body>
+</html>

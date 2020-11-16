@@ -1,0 +1,46 @@
+
+<div class="form-row">
+
+	<div class="form-group">
+		<label for="bookTitle">FIRST NAME</label> <input type="text"
+			class="form-control" th:field="${cust.fname}" id="fname"
+			placeholder="first name" required=""></input>
+	</div>
+
+	<div class="form-group">
+		<label for="isbin">LAST NAME</label> <input type="text"
+			class="form-control" th:field="${cust.lname}" id="lnmae"
+			placeholder="last name" required=""/>
+	</div>
+	
+	<div class="form-group">
+		<label for="authors">LANDMARK</label> <input type="text"
+			class="form-control" th:field="${cust.landmark}" id="landmark"
+			placeholder="landmark" required=""/>
+	</div>
+	
+	<div class="form-group">
+		<label for="publisher">WARDNAME</label> <input type="text"
+			class="form-control" th:field="${cust.wardname}" id="wardname"
+			placeholder="wardname" required=""/>
+	</div>
+
+	<div class="form-group">
+		<label for="price">CITY</label> <input type="text"
+			class="form-control" th:field="${cust.city}" id="city"
+			placeholder="city" required=""/>
+	</div>
+	<div class="form-group" th:object="${conc1}" th:method="post">
+		<label for="contact">contact</label> <input type="text"
+			class="form-control" th:field="${conc1.contact_no}" id="contact"
+			placeholder="contact" required=""/>
+	</div>
+	<div class="form-group" th:object="${mail1}" th:method="post">
+		<label for="email">Email</label> <input type="email"
+			class="form-control" th:field="${mail1.email}" id="email"
+			placeholder="email" required=""/>
+	</div>
+
+	
+</div>
+<div class="form-row"></div>

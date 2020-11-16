@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Add Photo</h1>
+			</div>
+		</div>
+		
+		<form class="form" th:object="${photo}" th:method="post">
+			
+			<div class="form-row">
+			
+				<div class="form-group">
+					<label for="bookTitle">photographer</label> <input type="text"
+						class="form-control" th:field="${photo.photographer}" id="photographer"
+						placeholder="photographer" required=""></input>
+				</div>
+			
+				<div class="form-group">
+					<label for="isbin">Photo Size</label> <input type="text"
+						class="form-control" th:field="${photo.size}" id="size"
+						placeholder="size" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="authors">Price</label> <input type="number"
+						class="form-control" th:field="${photo.price}" id="price"
+						placeholder="price" required=""/>
+				</div>
+
+	
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">click to Add Item</button>
+			</div>
+		</form>
+		</div>
+</body>

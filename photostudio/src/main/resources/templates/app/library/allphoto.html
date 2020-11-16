@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Photos</h3>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<h4>Studio Photograph</h4>
+			<tr>
+				<th>Photo ID</th>
+				<th>Order ID</th>
+				<th>Photographer</th>
+				<th>Size</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="photo : ${photo}">
+				<td th:text="${photo.photo_id}"></td>
+				<td th:text="${photo.order_id}"></td>
+				<td th:text="${photo.photographer}"></td>
+				<td th:text="${photo.size}"></td>
+				<td th:text="${photo.price}"></td>
+	
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>

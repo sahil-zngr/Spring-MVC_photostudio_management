@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Orders</h3>
+			</div>
+		</div>
+		<td><form class="form" th:object="${search}" th:method="post" th:attr="action=@{/app/order/search/}">
+					<div class="form-group"><input type="text"
+					class="form-control" th:field="${search.str}" id="serach"
+					placeholder="Search eg: for date yyyy-MM-dd" required=""/></div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+		</form></td>
+
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>CUSTOMER ID</th>
+				<th>EMPLOYEE ID</th>
+				<th>DATE</th>
+				<th>TIME</th>
+				<th>TOTAL PRICE</th>
+			</tr>
+			<tr th:each="order : ${order}">
+				<td th:text="${order.order_id}"></td>
+				<td th:text="${order.customer_id}"></td>
+				<td th:text="${order.employee_id}"></td>
+				<td th:text="${#dates.format(order.orderdate, 'dd-MM-yyyy')}"></td>
+				<td th:text="${order.ordertime}"></td>
+				<td th:text="${order.total_price}"></td>
+				<td><form th:method="get"
+						th:attr="action=@{/app/order/} + ${order.order_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Items" />
+					</form></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>

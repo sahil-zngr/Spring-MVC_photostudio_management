@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h3>Add print</h3>
+			</div>
+		</div>
+		
+		<form class="form" th:object="${print}" th:method="post">
+			
+			<div class="form-row">
+			
+				<div class="form-group">
+					<label for="bookTitle">printsize</label> <input type="text"
+						class="form-control" th:field="${print.print_size}" id="printsize"
+						placeholder="printsize" required=""></input>
+				</div>
+			
+				
+				<div class="form-group">
+					<label for="authors">Price</label> <input type="number"
+						class="form-control" th:field="${print.price}" id="price"
+						placeholder="price" required=""/>
+				</div>
+
+	
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">click to Add Item</button>
+			</div>
+		</form>
+		</div>
+</body>

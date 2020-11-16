@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="app/headerimports"></div>
+</head>
+<body>
+<div th:replace="app/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Services</h3>
+			</div>
+		</div>
+
+		<table class="table table-hover">
+			<h4>services</h4>
+			<tr>
+				<th>Service ID</th>
+				<th>Order ID</th>
+				<th>Service Date</th>
+				<th>Service Time</th>
+				<th>Price</th>
+			</tr>
+			<tr th:each="service : ${service}">
+				<td th:text="${service.service_id}"></td>
+				<td th:text="${service.order_id}"></td>
+				<td th:text="${service.servicedate}"></td>
+				<td th:text="${service.servicetime}"></td>
+				<td th:text="${service.price}"></td>
+	
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>

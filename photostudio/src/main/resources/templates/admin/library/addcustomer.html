@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Add customers</h1>
+			</div>
+		</div>
+		
+		<form class="form" th:object="${cust}" th:method="post">
+			<div th:replace="admin/library/addform"></div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">click to Add contact details</button>
+			</div>
+		</form>
+		</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+<div class = "container">
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Add OutdoorOrder</h1>
+			</div>
+		</div>
+		
+		<form class="form" th:object="${outdoor}" th:method="post">
+			
+			<div class="form-row">
+			
+				
+				
+				<div class="form-group">
+					<label for="publishDate">Start Date</label> <input type="date"
+						class="form-control" th:field="${outdoor.sdate}" id="sdate"
+						placeholder="Start Date" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="publishDate">Start Time</label> <input type="time"
+						class="form-control" th:field="${outdoor.stime}" id="time"
+						placeholder="Start Time" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="publishDate">End Date</label> <input type="date"
+						class="form-control" th:field="${outdoor.edate}" id="edate"
+						placeholder="End Date" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="publishDate">End Time</label> <input type="time"
+						class="form-control" th:field="${outdoor.etime}" id="time"
+						placeholder="End Time" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="bookTitle">Order Type</label> <input type="text"
+						class="form-control" th:field="${outdoor.ordertype}" id="ordertype"
+						placeholder="eg:birthday,wedding" required=""></input>
+				</div>
+			
+				<div class="form-group">
+					<label for="isbin">Service Required</label> <input type="text"
+						class="form-control" th:field="${outdoor.service_req}" id="service_req"
+						placeholder="eg: photoshoot,video" required=""/>
+				</div>
+				
+				<div class="form-group">
+					<label for="authors">Price</label> <input type="number"
+						class="form-control" th:field="${outdoor.price}" id="price"
+						placeholder="price" required=""/>
+				</div>
+
+	
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">click to Add Item</button>
+			</div>
+		</form>
+		</div>
+</body>

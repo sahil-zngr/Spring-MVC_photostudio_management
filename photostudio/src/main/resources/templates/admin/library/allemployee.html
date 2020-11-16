@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<div th:replace="admin/headerimports"></div>
+</head>
+<body>
+<div th:replace="admin/navbar"></div>
+
+	<div class="container">
+
+		<div class="container">
+			<div class="jumbotron">
+				<h3>All Employee</h3>
+			</div>
+		</div>
+		<td><form class="form" th:object="${search}" th:method="post" th:attr="action=@{/admin/employee/search/}">
+					<div class="form-group"><input type="text"
+					class="form-control" th:field="${search.str}" id="serach"
+					placeholder="Search" required=""/></div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+		</form></td>
+
+		<table class="table table-hover">
+			<tr>
+				<th>ID</th>
+				<th>FIRST NAME</th>
+				<th>LAST NAME</th>
+				<th>WARD</th>
+				<th>CITY</th>
+				<th>Date of Birth</th>
+				<th>Contact</th>
+			</tr>
+			<tr th:each="emp : ${emp}">
+				<td th:text="${emp.employee_id}"></td>
+				<td th:text="${emp.fname}"></td>
+				<td th:text="${emp.lname}"></td>
+				<td th:text="${emp.wardname}"></td>
+				<td th:text="${emp.city}"></td>
+				<td th:text="${emp.dateofbirth}"></td>
+				<td><form th:method="get"
+						th:attr="action=@{/admin/employee/contact/} + ${emp.employee_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Contact" />
+					</form></td>
+				<td><form th:method="get"
+						th:attr="action=@{/admin/editemployee/} + ${emp.employee_id}">
+						 <input class="btn btn-success"
+							type="submit" value="Edit Employee" />
+					</form></td>
+			</tr>
+		</table>
+
+	</div>
+
+
+</body>
+</html>
+<div class="form-row"></div>
