@@ -28,7 +28,7 @@ public class mailservice {
 		SimpleMailMessage mail = new SimpleMailMessage();
 		
 		mail.setTo(email);
-		mail.setSubject("Invoice Photo Studio");
+		mail.setSubject("Photo Studio");
 		mail.setText("Shyam Photo Studio\n "+str);
 
 		javaMailSender.send(mail);

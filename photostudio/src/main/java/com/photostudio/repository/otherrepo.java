@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.photostudio.models.material_sold;
 import com.photostudio.models.outdoororder;
+import com.photostudio.models.passwordtoken;
 import com.photostudio.models.photo_print;
 import com.photostudio.models.sendemail;
 import com.photostudio.models.service;
@@ -67,5 +68,7 @@ public class otherrepo {
 		jt.update(sql,smail.getOrder_id(),smail.getCustomer_email(),smail.getSdate(),smail.getStime(),smail.getStatus());
 		
 	}
+	
+
 	
 }
