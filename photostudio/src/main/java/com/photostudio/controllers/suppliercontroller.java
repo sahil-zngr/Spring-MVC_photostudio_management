@@ -58,6 +58,7 @@ public class suppliercontroller {
 	public ModelAndView getsupplierbyid(@PathVariable("supplier_id") int supplier_id) {
 		ModelAndView mv = new ModelAndView("app/library/allsupplier");
 		supplier supp = repo.getsuppbyid(supplier_id);
+		mv.addObject("search", new search());
 		mv.addObject("supp", supp);
         return mv;
 	}

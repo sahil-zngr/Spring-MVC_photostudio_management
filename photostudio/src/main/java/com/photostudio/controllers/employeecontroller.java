@@ -57,7 +57,7 @@ public class employeecontroller {
 	
 	
 	@GetMapping("/admin/addemployee")
-	public ModelAndView getIndexPage() {
+	public ModelAndView getaddcustomerRecord() {
 		ModelAndView mv = new ModelAndView("/admin/library/addemployee");
 		mv.addObject("emp", new employee());
 		mv.addObject("conc1",new employee_contact());

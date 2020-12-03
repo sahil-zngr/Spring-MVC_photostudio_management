@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.photostudio.controllers.suppliercontroller.search;
 import com.photostudio.models.supplier;
 import com.photostudio.models.supplier_contact;
 import com.photostudio.models.supplier_email;
@@ -46,6 +47,7 @@ public class adminsuppliercontroller {
 		ModelAndView mv = new ModelAndView("admin/library/allsupplier");
 		supplier supp = repo.getsuppbyid(supplier_id);
 		mv.addObject("supp", supp);
+		//mv.addObject("search", new search());
         return mv;
 	}
 	

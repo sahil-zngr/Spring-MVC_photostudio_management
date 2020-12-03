@@ -221,6 +221,19 @@ public class adminordercontroller {
 	public ModelAndView addmat(@PathVariable("cust_id") int cust_id) {
         ModelAndView mv = new ModelAndView("admin/library/addsoldmaterial");
         List<material> materialList = repo.getmateriallist();
+        for(material_sold mat: itemlist.mat) {
+        	int i = 0;
+        	for(material matlist: materialList) {
+            	if(matlist.getMaterial_id() == mat.getMaterial_id()) {
+            		materialList.get(i).setAvailable_quantity(materialList.get(i).getAvailable_quantity()-1);
+            		if(materialList.get(i).getAvailable_quantity() == 0) {
+            			materialList.remove(i);
+            		}
+            		break;
+            	}
+            	i = i+1;
+            }
+        }
         mv.addObject("material",materialList);
         mv.addObject("cust_id", cust_id);
         return mv;

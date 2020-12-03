@@ -48,7 +48,7 @@ public class orderrepo {
 	
 	public List<material> getmateriallist(){
 		
-		String sql = "select * from material";
+		String sql = "select * from material where available_quantity > 0";
 		return jt.query( sql, new BeanPropertyRowMapper(material.class));
 	}
 	

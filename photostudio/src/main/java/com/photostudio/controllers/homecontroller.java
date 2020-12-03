@@ -3,6 +3,7 @@ package com.photostudio.controllers;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -115,7 +116,12 @@ public class homecontroller {
 			String token = UUID.randomUUID().toString();
 			String str = "To complete the password reset process, please click here: "
 		              + "http://localhost:8080/forgot/reset/"+username.getMsg()+"/"+token;
+			try {
 			notificationService.sendEmail(email, str);
+			}
+			catch (MailException mailException) {
+				System.out.println(mailException);
+			}
 			passwordtoken token1 = new passwordtoken();
 			token1.setPasswordtokentoken(token);
 			token1.setUsername(username.getMsg());
@@ -128,7 +134,7 @@ public class homecontroller {
 			String usertoken = userrepo.usertoken(username);
 			//System.out.println(token);
 			//System.out.println(usertoken);
-			ModelAndView mv1 = new ModelAndView("app/error403");
+			ModelAndView mv1 = new ModelAndView("app/passerror");
 			if (usertoken.equals(token)) {
 				//System.out.println("here");
 				ModelAndView mv = new ModelAndView("/app/resetpassword2");
@@ -153,7 +159,7 @@ public class homecontroller {
 				userrepo.deletetoken(username.getMsg());
 			}
 	        else {
-	        	ModelAndView mv1 = new ModelAndView("app/error403");
+	        	ModelAndView mv1 = new ModelAndView("app/passerror");
 	        	userrepo.deletetoken(username.getMsg());
 	        	return mv1;
 	        }
